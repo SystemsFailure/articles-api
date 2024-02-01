@@ -25,7 +25,7 @@ const corsConfig = defineConfig({
     return result
   },
   methods: ['GET', 'HEAD', 'POST', 'PUT', 'DELETE'],
-  headers: (headers, _) => {
+  headers: (__, _) => {
     return true
   },
   exposeHeaders: [],
