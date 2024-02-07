@@ -3,9 +3,7 @@ import { defineConfig } from '@adonisjs/cors'
 // interface DomensListType {
 //   [key: string]: string,
 // }
-const domensList: Array<string> = [
-  "http://localhost:8000"
-]
+const domensList: Array<string> = ['http://localhost:8000']
 /**
  * Configuration options to tweak the CORS policy. The following
  * options are documented on the official documentation website.

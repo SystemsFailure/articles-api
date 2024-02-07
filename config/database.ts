@@ -1,7 +1,6 @@
 import { defineConfig } from '@adonisjs/lucid'
 import env from '#start/env'
 
-
 const dbConfig = defineConfig({
   connection: env.get('DB_CONNECTION', 'pg'),
   connections: {
@@ -14,7 +13,7 @@ const dbConfig = defineConfig({
         password: env.get('PG_PASSWORD'),
         database: env.get('PG_DATABASE'),
       },
-      debug: undefined
+      debug: undefined,
     },
   },
 })
