@@ -1,4 +1,3 @@
-import User from '#models/user'
 import { HttpContext } from '@adonisjs/core/http'
 import UserService from './user.service.js'
 import { inject } from '@adonisjs/core'
@@ -31,11 +30,4 @@ export default class UsersController {
       response.send({ user: result.user })
     }
   }
-  async store({ request }: HttpContext) {}
-  async show({ params }: HttpContext) {}
-  async edit({ params }: HttpContext) {}
-  async update({ params, request }: HttpContext) {
-    console.log(params)
-  }
-  async destroy({ params }: HttpContext) {}
 }

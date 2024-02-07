@@ -22,6 +22,7 @@ export default defineConfig({
   |
   */
   providers: [
+    () => import("./providers/app_provider.js"),
     () => import('@adonisjs/core/providers/app_provider'),
     () => import('@adonisjs/core/providers/hash_provider'),
     {
