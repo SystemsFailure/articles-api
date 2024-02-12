@@ -1,8 +1,11 @@
-import { BaseModel, column, manyToMany, belongsTo } from '@adonisjs/lucid/orm'
-import type { ManyToMany, BelongsTo } from '@adonisjs/lucid/types/relations'
+import { BaseModel, column, manyToMany, belongsTo, hasMany } from '@adonisjs/lucid/orm'
+import type { ManyToMany, BelongsTo, HasMany } from '@adonisjs/lucid/types/relations'
 import { DateTime } from 'luxon'
 import Tag from '#models/tag'
 import Category from './category.js'
+import TextFile from './textFile.js'
+import ImageFile from './imageFile.js'
+import VideoFile from './videoFile.js'
 
 export default class Article extends BaseModel {
     @column({ isPrimary: true })
@@ -88,4 +91,13 @@ export default class Article extends BaseModel {
 
     @belongsTo(() => Category)
     declare category: BelongsTo<typeof Category>
+
+    @hasMany(() => TextFile, { foreignKey: 'article_id' })
+    declare textFiles: HasMany<typeof TextFile>
+
+    @hasMany(() => ImageFile, { foreignKey: 'article_id' })
+    declare iamgeFiles: HasMany<typeof ImageFile>
+
+    @hasMany(() => VideoFile, { foreignKey: 'article_id' })
+    declare videoFiles: HasMany<typeof VideoFile>
 }
