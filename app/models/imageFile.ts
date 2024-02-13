@@ -2,6 +2,7 @@ import { BaseModel, belongsTo, column } from "@adonisjs/lucid/orm";
 import { DateTime } from "luxon";
 import Article from "#models/article";
 import type { BelongsTo } from "@adonisjs/lucid/types/relations";
+import Cloud from "./cloud.js";
 
 export default class ImageFile extends BaseModel {
     @column({ isPrimary: true })
@@ -9,6 +10,9 @@ export default class ImageFile extends BaseModel {
 
     @column()
     declare article_id: number
+
+    @column()
+    declare cloud_id: number
 
     @column()
     declare title: string;
@@ -36,4 +40,7 @@ export default class ImageFile extends BaseModel {
     // Связи
     @belongsTo(() => Article, { foreignKey: 'article_id' })
     declare article: BelongsTo<typeof Article>
+
+    @belongsTo(() => Cloud)
+    declare cloud: BelongsTo<typeof Cloud>
 }
