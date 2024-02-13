@@ -6,10 +6,14 @@ import Category from './category.js'
 import TextFile from './textFile.js'
 import ImageFile from './imageFile.js'
 import VideoFile from './videoFile.js'
+import Cloud from './cloud.js'
 
 export default class Article extends BaseModel {
     @column({ isPrimary: true })
     declare id: number
+
+    @column()
+    declare cloud_id: number
 
     @column()
     declare title: string
@@ -100,4 +104,7 @@ export default class Article extends BaseModel {
 
     @hasMany(() => VideoFile, { foreignKey: 'article_id' })
     declare videoFiles: HasMany<typeof VideoFile>
+
+    @belongsTo(() => Cloud)
+    declare cloud: BelongsTo<typeof Cloud>
 }
